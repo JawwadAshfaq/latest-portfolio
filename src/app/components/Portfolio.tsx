@@ -8,15 +8,16 @@ import 'swiper/css/pagination';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 
+// Ensure these paths and filenames exactly match what's in your public directory
 const portfolioItems = [
-  { image: '/project1.jpg' },
-  { image: '/project2.jpg' },
-  { image: '/project3.jpg' },
-  { image: '/project4.jpg' },
-  { image: '/project1.jpg' },
-  { image: '/project2.jpg' }, 
-  { image: '/project3.jpg' },
-  { image: '/project4.jpg' },
+  { image: '/project1.jpg', alt: 'Project 1' },
+  { image: '/project2.jpg', alt: 'Project 2' },
+  { image: '/project3.jpg', alt: 'Project 3' },
+  { image: '/project4.jpg', alt: 'Project 4' },
+  { image: '/project1.jpg', alt: 'Project 1 Duplicate' },
+  { image: '/project2.jpg', alt: 'Project 2 Duplicate' },
+  { image: '/project3.jpg', alt: 'Project 3 Duplicate' },
+  { image: '/project4.jpg', alt: 'Project 4 Duplicate' },
 ];
 
 const PortfolioSlider = () => {
@@ -48,11 +49,11 @@ const PortfolioSlider = () => {
             <motion.div className="relative rounded-xl overflow-hidden">
               <Image
                 src={item.image}
-                alt={`Project ${index + 1}`}
+                alt={item.alt}
                 width={350}
                 height={400}
-                layout="intrinsic" // Better performance for responsive layouts
                 className="w-full h-auto border-4 border-[#c4cfde] rounded-[10px]"
+                objectFit="cover" // Makes sure the image covers the container without distortion
               />
             </motion.div>
           </SwiperSlide>
