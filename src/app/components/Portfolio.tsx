@@ -51,6 +51,7 @@ const PortfolioSlider = () => {
                 alt={`Project ${index + 1}`}
                 width={350}
                 height={400}
+                layout="intrinsic" // Better performance for responsive layouts
                 className="w-full h-auto border-4 border-[#c4cfde] rounded-[10px]"
               />
             </motion.div>
