@@ -13,7 +13,7 @@ export default function HeroSection() {
       <article className="container m-6 flex flex-col-reverse md:flex-row items-center justify-center text-center md:text-left">
         {/* Left Content */}
         <div className="md:w-7/12 flex flex-col items-center md:items-start mt-10 md:mt-30 mr-0 md:mr-10">
-          {/* First Paragraph */}
+          {/* Intro Text */}
           <p className="text-[16px] md:text-[22px] uppercase tracking-wide text-gray-400 mb-2 pb-4">
             Welcome to my portfolio
           </p>
@@ -22,15 +22,17 @@ export default function HeroSection() {
           <h2 className="about-head text-3xl md:text-5xl font-bold pb-4 leading-snug">
             Hi, I’m <span className="text-[#800080]">Jawwad Ashfaq</span>
             <span className="text-white">, </span>
-            <Typewriter
-              options={{
-                strings: ['Full Stack Developer.', 'CMS Developer.'],
-                autoStart: true,
-                loop: true,
-                delay: 75,
-                deleteSpeed: 10,
-              }}
-            />
+            <span className="block">
+              <Typewriter
+                options={{
+                  strings: ['Full Stack Developer.', 'CMS Developer.'],
+                  autoStart: true,
+                  loop: true,
+                  delay: 75,
+                  deleteSpeed: 10,
+                }}
+              />
+            </span>
           </h2>
 
           {/* Main Paragraph */}
@@ -49,7 +51,7 @@ export default function HeroSection() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Facebook"
-              className="bg-[#800080] p-3 rounded-full text-white text-xl hover:bg-[#9a009a] focus:outline-none focus:ring-2 focus:ring-purple-500 transition"
+              className="bg-[#800080] p-3 rounded-full text-white text-xl hover:bg-[#9a009a] transition"
             >
               <FaFacebookF />
             </a>
@@ -58,7 +60,7 @@ export default function HeroSection() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
-              className="bg-[#800080] p-3 rounded-full text-white text-xl hover:bg-[#9a009a] focus:outline-none focus:ring-2 focus:ring-purple-500 transition"
+              className="bg-[#800080] p-3 rounded-full text-white text-xl hover:bg-[#9a009a] transition"
             >
               <FaLinkedinIn />
             </a>
@@ -67,7 +69,7 @@ export default function HeroSection() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="WhatsApp"
-              className="bg-[#25D366] p-3 rounded-full text-white text-xl hover:bg-[#1EBE57] focus:outline-none focus:ring-2 focus:ring-green-500 transition"
+              className="bg-[#25D366] p-3 rounded-full text-white text-xl hover:bg-[#1EBE57] transition"
             >
               <FaWhatsapp />
             </a>
