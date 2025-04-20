@@ -10,10 +10,9 @@ import { motion } from 'framer-motion';
 
 // Ensure these paths and filenames exactly match what's in your public directory
 const portfolioItems = [
-  { image: '/project1.jpg', alt: 'Project 1' },
+  { image: '/public/project1.jpg', alt: 'Project 1' },
   { image: '/project2.jpg', alt: 'Project 2' },
-  { image: '/git add src/app/components/Portfolio.tsx
-project3.jpg', alt: 'Project 3' },
+  { image: '/project3.jpg', alt: 'Project 3' },
   { image: '/project4.jpg', alt: 'Project 4' },
 ];
 
