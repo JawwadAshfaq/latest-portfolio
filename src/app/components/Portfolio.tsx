@@ -52,6 +52,7 @@ const PortfolioSlider = () => {
                 alt={item.alt}
                 width={350}
                 height={400}
+                layout="intrinsic"
                 className="w-full h-auto border-4 border-[#c4cfde] rounded-[10px]"
                 objectFit="cover" // Makes sure the image covers the container without distortion
               />
