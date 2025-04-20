@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { FaFacebookF, FaLinkedinIn, FaWhatsapp } from 'react-icons/fa';
-import Typewriter from 'typewriter-effect';
+// import Typewriter from 'typewriter-effect';
 
 export default function HeroSection() {
   return (
