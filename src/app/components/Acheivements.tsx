@@ -6,7 +6,7 @@ import { Swiper as SwiperClass } from "swiper"; // Import Swiper type
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 
 const videos = [
   "/video1.mp4",
@@ -23,12 +23,10 @@ const videos = [
 
 const VideoSection = () => {
   const [isAutoplayEnabled, setIsAutoplayEnabled] = useState(true);
-  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const swiperRef = useRef<SwiperClass | null>(null); // Properly typed reference
 
   const handleVideoPlay = () => {
     setIsAutoplayEnabled(false); // Disable autoplay when video plays
-    setIsVideoPlaying(true);
     if (swiperRef.current) {
       swiperRef.current.autoplay.stop(); // Stop autoplay when video starts
       swiperRef.current.disable(); // Disable swiper navigation during video play
@@ -37,7 +35,6 @@ const VideoSection = () => {
 
   const handleVideoPause = () => {
     setIsAutoplayEnabled(true); // Re-enable autoplay when video is paused
-    setIsVideoPlaying(false);
     if (swiperRef.current) {
       swiperRef.current.enable(); // Re-enable swiper navigation when video pauses
     }
@@ -45,12 +42,20 @@ const VideoSection = () => {
 
   const handleVideoEnded = () => {
     setIsAutoplayEnabled(true); // Re-enable autoplay after video ends
-    setIsVideoPlaying(false);
     if (swiperRef.current) {
       swiperRef.current.autoplay.start(); // Start autoplay again after video ends
       swiperRef.current.enable(); // Enable swiper navigation
     }
   };
+
+  // Cleanup function when component unmounts
+  useEffect(() => {
+    return () => {
+      if (swiperRef.current) {
+        swiperRef.current.autoplay.stop(); // Stop autoplay when the component is unmounted
+      }
+    };
+  }, []);
 
   return (
     <>

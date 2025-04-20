@@ -1,4 +1,4 @@
-import Image from "next/image";
+// import Image from "next/image";
 import StarCanvas from "./components/StarCanvas";
 import Service from "./components/About";
 import Count from "./components/Count"

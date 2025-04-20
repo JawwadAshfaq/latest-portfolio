@@ -3,25 +3,19 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
+import clsx from 'clsx';
 
 const Header = () => {
-  const pathname = usePathname();
+  const pathname = usePathname() || '';  // Fallback to empty string if undefined
   const [open, setOpen] = useState(false);
 
-  const contactLink = "https://wa.me/923191542621";  // Dynamic link
+  const contactLink = process.env.NEXT_PUBLIC_CONTACT_LINK || "https://wa.me/923191542621";  // Dynamic link
 
   // Link style logic for active and inactive links
-  const linkStyle = (href: string) => 
-    `text-[18px] ${pathname === href ? "text-[#800080]" : "text-[#c4cfde]"} transition-all relative group cursor-pointer`;
+  const linkStyle = (href: string) =>
+    clsx('text-[18px]', pathname === href ? 'text-[#800080]' : 'text-[#c4cfde]', 'transition-all', 'relative', 'group', 'cursor-pointer');
 
   // Function to scroll to each section by ID
   const scrollToSection = (sectionId: string) => {
@@ -44,7 +38,7 @@ const Header = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <ul className="hidden md:flex space-x-5 items-center">
+          <ul className="hidden md:flex space-x-5 items-center gap-x-6">
             <li className="pt-2 font-[600]">
               <button onClick={() => scrollToSection("home")} className={linkStyle("/")}>
                 HOME
@@ -78,10 +72,10 @@ const Header = () => {
 
           {/* Mobile Navigation */}
           <Sheet open={open} onOpenChange={setOpen}>
-            <SheetTrigger className="md:hidden p-3 text-[#800080]">
+            <SheetTrigger className="md:hidden p-3 text-[#800080]" aria-expanded={open ? "true" : "false"} aria-controls="mobile-menu">
               <Menu size={30} />
             </SheetTrigger>
-            <SheetContent className="bg-[#030014] text-white w-[90%]">
+            <SheetContent className="bg-[#030014] text-white w-[90%]" id="mobile-menu">
               <SheetHeader>
                 <SheetTitle className=" text-[24px] font-bold">
                   <div className="logo mt-12">
@@ -123,7 +117,7 @@ const Header = () => {
                 </li>
                 <li>
                   <button className="bg-head-btn px-4 py-2 text-white rounded font-semibold hover:bg-purple-800 transition">
-                    <a href={contactLink} target="_blank" rel="noopener noreferrer">
+                    <a href={contactLink} target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}>
                       LET'S TALK
                     </a>
                   </button>
