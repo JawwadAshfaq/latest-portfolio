@@ -14,6 +14,10 @@ const portfolioItems = [
   { image: '/project2.jpg', alt: 'Project 2' },
   { image: '/project3.jpg', alt: 'Project 3' },
   { image: '/project4.jpg', alt: 'Project 4' },
+  { image: '/project1.jpg', alt: 'Project 1 Duplicate' },
+  { image: '/project2.jpg', alt: 'Project 2 Duplicate' },
+  { image: '/project3.jpg', alt: 'Project 3 Duplicate' },
+  { image: '/project4.jpg', alt: 'Project 4 Duplicate' },
 ];
 
 const PortfolioSlider = () => {
