@@ -27,28 +27,28 @@ const VideoSection = () => {
   const swiperRef = useRef<SwiperClass | null>(null); // Properly typed reference
 
   const handleVideoPlay = () => {
-    setIsAutoplayEnabled(false);
+    setIsAutoplayEnabled(false); // Disable autoplay when video plays
     setIsVideoPlaying(true);
     if (swiperRef.current) {
-      swiperRef.current.autoplay.stop();
-      swiperRef.current.disable();
+      swiperRef.current.autoplay.stop(); // Stop autoplay when video starts
+      swiperRef.current.disable(); // Disable swiper navigation during video play
     }
   };
 
   const handleVideoPause = () => {
-    setIsAutoplayEnabled(true);
+    setIsAutoplayEnabled(true); // Re-enable autoplay when video is paused
     setIsVideoPlaying(false);
     if (swiperRef.current) {
-      swiperRef.current.enable(); // FIX: Do not call start() to prevent instant slide movement
+      swiperRef.current.enable(); // Re-enable swiper navigation when video pauses
     }
   };
 
   const handleVideoEnded = () => {
-    setIsAutoplayEnabled(true);
+    setIsAutoplayEnabled(true); // Re-enable autoplay after video ends
     setIsVideoPlaying(false);
     if (swiperRef.current) {
-      swiperRef.current.autoplay.start();
-      swiperRef.current.enable();
+      swiperRef.current.autoplay.start(); // Start autoplay again after video ends
+      swiperRef.current.enable(); // Enable swiper navigation
     }
   };
 
@@ -77,8 +77,8 @@ const VideoSection = () => {
           modules={[Autoplay, Navigation]}
           className="rounded-lg shadow-lg"
         >
-          {videos.map((video) => (
-            <SwiperSlide key={video}>
+          {videos.map((video, index) => (
+            <SwiperSlide key={index}>
               <video
                 controls
                 className="w-full rounded-lg shadow-lg"

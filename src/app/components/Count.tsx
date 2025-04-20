@@ -8,14 +8,14 @@ const Count = () => {
   const sectionRef = useRef(null);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setInView(true);
-        }
-      },
-      { threshold: 0.5 }
-    );
+    const handleIntersection = (entries: IntersectionObserverEntry[]) => {
+      const [entry] = entries;
+      if (entry.isIntersecting) {
+        setInView(true);
+      }
+    };
+
+    const observer = new IntersectionObserver(handleIntersection, { threshold: 0.5 });
 
     if (sectionRef.current) {
       observer.observe(sectionRef.current);
