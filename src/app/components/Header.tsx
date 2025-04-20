@@ -8,21 +8,19 @@ import { Menu } from "lucide-react";
 import clsx from 'clsx';
 
 const Header = () => {
-  const pathname = usePathname() || '';  // Fallback to empty string if undefined
+  const pathname = usePathname() || '';
   const [open, setOpen] = useState(false);
 
-  const contactLink = process.env.NEXT_PUBLIC_CONTACT_LINK || "https://wa.me/923191542621";  // Dynamic link
+  const contactLink = process.env.NEXT_PUBLIC_CONTACT_LINK || "https://wa.me/923191542621";
 
-  // Link style logic for active and inactive links
   const linkStyle = (href: string) =>
     clsx('text-[18px]', pathname === href ? 'text-[#800080]' : 'text-[#c4cfde]', 'transition-all', 'relative', 'group', 'cursor-pointer');
 
-  // Function to scroll to each section by ID
   const scrollToSection = (sectionId: string) => {
     const section = document.getElementById(sectionId);
     if (section) {
       section.scrollIntoView({ behavior: "smooth" });
-      setOpen(false); // Close mobile menu after scroll
+      setOpen(false);
     }
   };
 
@@ -30,14 +28,12 @@ const Header = () => {
     <>
       <div className="max-w-[1300px] mx-auto mb-2 mt-2 px-4">
         <header className="flex justify-between items-center py-2">
-          {/* Logo */}
           <div className="logo">
             <h1 className="text-[24px] md:text-[28px] font-bold text-white">
               {"<Jawwad Ashfaq />"}
             </h1>
           </div>
 
-          {/* Desktop Navigation */}
           <ul className="hidden md:flex space-x-5 items-center gap-x-6">
             <li className="pt-2 font-[600]">
               <button onClick={() => scrollToSection("home")} className={linkStyle("/")}>
@@ -65,12 +61,11 @@ const Header = () => {
             </li>
             <button className="bg-head-btn px-4 py-2 text-white rounded font-semibold hover:bg-purple-800 transition">
               <a href={contactLink} target="_blank" rel="noopener noreferrer">
-                LET'S TALK
+                LET&#39;S TALK
               </a>
             </button>
           </ul>
 
-          {/* Mobile Navigation */}
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger className="md:hidden p-3 text-[#800080]" aria-expanded={open ? "true" : "false"} aria-controls="mobile-menu">
               <Menu size={30} />
@@ -118,7 +113,7 @@ const Header = () => {
                 <li>
                   <button className="bg-head-btn px-4 py-2 text-white rounded font-semibold hover:bg-purple-800 transition">
                     <a href={contactLink} target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}>
-                      LET'S TALK
+                      LET&#39;S TALK
                     </a>
                   </button>
                 </li>
