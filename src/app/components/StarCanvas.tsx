@@ -4,7 +4,7 @@ import React, { useState, useRef, Suspense } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Points, PointMaterial } from "@react-three/drei";
 // @ts-ignore
-import { inSphere } from "maath/random/dist/maath-random.esm";
+import { inSphere } from "maath/random";
 import * as THREE from "three";
 
 const StarBackground = (props: any) => {
