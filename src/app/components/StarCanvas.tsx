@@ -2,7 +2,7 @@ import React from 'react'
 
 const StarCanvas = () => {
   return (
-    <div>StarCanva</div>
+    <div>StarCanv</div>
   )
 }
 
