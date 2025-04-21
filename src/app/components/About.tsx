@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { FaFacebookF, FaLinkedinIn, FaWhatsapp } from 'react-icons/fa';
-import Typewriter from 'typewriter-effect';
+// import Typewriter from 'typewriter-effect';
 
 export default function HeroSection() {
   return (
@@ -20,10 +20,10 @@ export default function HeroSection() {
 
           {/* Heading with Typewriter */}
           <h2 className="about-head text-3xl md:text-5xl font-bold pb-4 leading-snug">
-            Hi, I’m <span className="text-[#800080]">Jawad Ashfaq</span>
+            Hi, I’m <span className="text-[#800080]">Jawwad Ashfaq</span>
             <span className="text-white">, </span>
             <span className="block">
-              <Typewriter
+              {/* <Typewriter
                 options={{
                   strings: ['Full Stack Developer.', 'CMS Developer.'],
                   autoStart: true,
@@ -31,7 +31,7 @@ export default function HeroSection() {
                   delay: 75,
                   deleteSpeed: 10,
                 }}
-              />
+              /> */}
             </span>
           </h2>
 
