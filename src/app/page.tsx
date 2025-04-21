@@ -1,5 +1,9 @@
 // import Image from "next/image";
-import StarCanvas from "./components/StarCanvas";
+import dynamic from "next/dynamic";
+
+const StarCanvas = dynamic(() => import("./components/StarCanvas"), {
+  ssr: false,
+});
 import Service from "./components/About";
 import Count from "./components/Count"
 import Services from "./components/Services";
