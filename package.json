@@ -31,8 +31,13 @@
     "@react-three/drei": "^10.0.6",
     "@react-three/fiber": "^9.1.2",
     "@tailwindcss/postcss": "^4",
+<<<<<<< HEAD
     "@types/node": "20.17.30",
     "@types/react": "19.1.2",
+=======
+    "@types/node": "^20",
+    "@types/react": "^19",
+>>>>>>> 8c23ce8aed85528a3a45fdb1e8e999c5a9c8c76d
     "@types/react-dom": "^19",
     "@types/react-slick": "^0.23.13",
     "eslint": "^9",
@@ -41,6 +46,10 @@
     "react-intersection-observer": "^9.16.0",
     "tailwindcss": "^4",
     "three": "^0.175.0",
+<<<<<<< HEAD
     "typescript": "5.8.3"
+=======
+    "typescript": "^5"
+>>>>>>> 8c23ce8aed85528a3a45fdb1e8e999c5a9c8c76d
   }
 }
